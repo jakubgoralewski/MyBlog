@@ -1,0 +1,11 @@
+# PyCharm stuff
+.idea/
+
+
+*.xml
+*.pyc
+*.env
+__pycache__
+
+# own ignored dirs
+static/
