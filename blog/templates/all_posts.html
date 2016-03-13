@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}
+    {% page_attribute "page_title" %}
+{% endblock title %}
+
+{% block content %}
+    <h1>Siema!</h1>
+    <hr>
+
+    {% for post in posts %}
+        <article>
+            <strong>{{ todo.title }}</strong>
+            <div>
+                {{ todo.content|safe }}
+            </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}

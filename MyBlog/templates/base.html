@@ -3,9 +3,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}This is my new project home page{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <title>
+            {% block title %}
+                This is my new project home page
+            {% endblock title %}
+        </title>
+        {%  addtoblock "css" %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+        {% endaddtoblock %}
+
         {% render_block "css" %}
     </head>
     <body>
@@ -27,10 +35,18 @@
                     </ul>
                 </div>
             </div>
-            {% block content %}{% endblock content %}
+            {% block content %}
+
+            {% endblock content %}
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        {% addtoblock "js" %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        {% endaddtoblock %}
+        {% addtoblock "js" %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        {% endaddtoblock %}
+
         {% render_block "js" %}
     </body>
 </html>

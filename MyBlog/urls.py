@@ -18,6 +18,7 @@ urlpatterns = i18n_patterns('',
 
     # apps urls
     url(r'^todo/', include('todo.urls')),
+    url(r'^blog/', include('blog.urls')),
 
     # cms urls
     url(r'^', include('cms.urls')),
