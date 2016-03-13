@@ -7,5 +7,15 @@
 
 {% block content %}
     <h1>Siema!</h1>
-    <p>{{ test }}</p>
+    <hr>
+
+    {% for todo in todos %}
+        <article>
+            <strong>{{ todo.title }}</strong>
+            <div>
+                {{ todo.note|safe }}
+            </div>
+        </article>
+    {% endfor %}
+
 {% endblock content %}
