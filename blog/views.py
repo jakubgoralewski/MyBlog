@@ -4,7 +4,7 @@ from blog.models import Post
 
 
 def all_posts_view(request):
-    template_name = "todo.html"
+    template_name = "all_posts.html"
 
     context = {
         'posts': Post.objects.all()

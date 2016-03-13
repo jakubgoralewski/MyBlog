@@ -11,9 +11,9 @@
 
     {% for post in posts %}
         <article>
-            <strong>{{ todo.title }}</strong>
+            <strong>{{ post.title }}</strong>
             <div>
-                {{ todo.content|safe }}
+                {{ post.content|safe }}
             </div>
         </article>
     {% endfor %}
