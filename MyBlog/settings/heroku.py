@@ -32,7 +32,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'MyBlog', 'static'),
 )
 
 LOGGING = {
