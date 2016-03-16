@@ -7,7 +7,7 @@ class Post(models.Model):
     title = models.CharField(verbose_name="Title", max_length=512)
     content = RichTextField(verbose_name="Content")
     author = models.ForeignKey(User)
-    slug = models.SlugField(max_length=128)
+    slug = models.SlugField(max_length=128, unique=True)
 
     is_published = models.BooleanField(default=False)
 

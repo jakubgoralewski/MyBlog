@@ -4,6 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Jacob Goraewski">
 
         <title>
             {% block title %}
@@ -12,6 +14,9 @@
         </title>
         {%  addtoblock "css" %}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+        {% endaddtoblock %}
+        {%  addtoblock "css" %}
+            <link href="{% static 'assets/css/clean-blog.css' %}" rel="stylesheet">
         {% endaddtoblock %}
 
         {% render_block "css" %}
@@ -22,32 +27,69 @@
         {% addtoblock "js" %}
             <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
         {% endaddtoblock %}
+        {% addtoblock "js" %}
+            <script src="{% static 'assets/js/clean-blog.js' %}"></script>
+        {% endaddtoblock %}
 
         {% render_block "js" %}
     </head>
     <body>
         {% cms_toolbar %}
-        <div class="container">
-            <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="{% url 'all_posts' %}">Science_myths</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
                         {% show_menu 0 1 100 100 "menu.html" %}
                     </ul>
                 </div>
+                <!-- /.navbar-collapse -->
             </div>
-            {% block content %}
+            <!-- /.container -->
+        </nav>
+        <header class="intro-header" style="background-image: url({% static 'assets/img/math.jpg' %})">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>Science_myths</h1>
+                            <hr class="small">
+                            <span class="subheading">What You believe and why You should stop!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-            {% endblock content %}
+        <div class="row">
+            <div class="col-lg-7 col-lg-offset-1">
+                {% block content %}
+
+                {% endblock content %}
+            </div>
+
+            <div class="col-lg-3">
+                {% block side_content %}
+                    <h2>test</h2>
+                    <p>
+                        hujnsdlvjbsadfv asjkb kbsfdkb sdkbafk bf asdasdfk fbksdf k sb fksb dfhk
+                    </p>
+                {% endblock side_content %}
+            </div>
         </div>
+
+
 
 
     </body>
