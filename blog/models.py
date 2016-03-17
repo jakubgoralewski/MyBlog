@@ -1,5 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -23,6 +24,9 @@ class Post(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     tags = models.ManyToManyField(Tags)
+
+    def get_absolute_url(self):
+        return reverse('bolg.views.post_detail', args=[str(self.slug)])
 
     def __str__(self):
         return "\"%s\" %s@%s" % (self.title, self.author, self.created_date.strftime("%d-%m-%Y %H:%m"))

@@ -15,6 +15,9 @@
             <div>
                 {{ post.content|safe }}
             </div>
+            <div>
+                <a href="{% url 'post_detail' post.slug %}">See details...</a>
+            </div>
         </article>
     {% endfor %}
 
