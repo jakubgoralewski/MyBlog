@@ -1,10 +1,10 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from blog.models import Post
+from blog.models.post import Post
 
 
 def all_posts_view(request):
-    template_name = "all_posts.html"
+    template_name = "post/all.html"
 
     context = {
         'posts': Post.objects.all()
@@ -14,7 +14,7 @@ def all_posts_view(request):
 
 
 def post_detail(request, slug):
-    template_name = "post_detail.html"
+    template_name = "post/detail.html"
 
     context = {
         'post': get_object_or_404(Post, slug=slug)

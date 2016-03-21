@@ -2,13 +2,9 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
+from blog.models.tag import Tag
 
-
-class Tags(models.Model):
-    name = models.CharField(max_length=32, verbose_name="Name")
-
-    def __str__(self):
-        return self.name
+__author__ = "Jakub"
 
 
 class Post(models.Model):
@@ -23,7 +19,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True, editable=False)
     modified_date = models.DateTimeField(auto_now=True)
 
-    tags = models.ManyToManyField(Tags)
+    tags = models.ManyToManyField(Tag)
 
     def get_absolute_url(self):
         return reverse('bolg.views.post_detail', args=[str(self.slug)])

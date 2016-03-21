@@ -1,5 +1,6 @@
 from django.contrib import admin
-from blog.models import Post, Tags
+from blog.models.post import Post
+from blog.models.tag import Tag
 
 
 @admin.register(Post)
@@ -10,6 +11,6 @@ class PostAdmin(admin.ModelAdmin):
 #admin.site.register(Post, PostAdmin)
 
 
-@admin.register(Tags)
+@admin.register(Tag)
 class TagsAdmin(admin.ModelAdmin):
     list_display = ('name',)
