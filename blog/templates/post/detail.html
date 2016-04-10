@@ -11,5 +11,13 @@
         <div>
             {{ post.content|safe }}
         </div>
+        <div>
+
+            <ul>
+                {% for tag in post.tags.all %}
+                    <li>{{ tag.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </article>
 {% endblock content %}
