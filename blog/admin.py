@@ -1,14 +1,19 @@
 from django.contrib import admin
-from blog.models.post import Post
+from blog.models.post import Post, TagsInPostsManager
 from blog.models.tag import Tag
 
+
+class TagInline(admin.TabularInline):
+    model = TagsInPostsManager
+    extra = 1  # how many rows to show
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_published', 'author', 'created_date')
     list_editable = ('is_published',)
     prepopulated_fields = {"slug": ("title",)}
-#admin.site.register(Post, PostAdmin)
+    inlines = (TagInline,)
+
 
 
 @admin.register(Tag)

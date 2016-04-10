@@ -19,12 +19,17 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True, editable=False)
     modified_date = models.DateTimeField(auto_now=True)
 
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, through='TagsInPostsManager')
 
     def get_absolute_url(self):
         return reverse('bolg.views.post_detail', args=[str(self.slug)])
 
     def __str__(self):
         return "\"%s\" %s@%s" % (self.title, self.author, self.created_date.strftime("%d-%m-%Y %H:%m"))
+
+
+class TagsInPostsManager(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
 
