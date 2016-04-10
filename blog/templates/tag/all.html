@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block title %}
+    {% page_attribute "page_title" %}
+{% endblock title %}
+
+{% block content %}
+    <h1>Tags</h1>
+    {% for tag in tags %}
+        <div class="col-md-6">
+            <h3>{{ tag.name }}</h3>
+
+            <p>
+                {{ tag.description|safe }}
+            </p>
+                <a href="{% url 'post_with_tag' tag.slug %}">See all posts with this tag</a>
+        </div>
+    {% endfor %}
+{% endblock content %}

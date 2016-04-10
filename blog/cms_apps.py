@@ -5,6 +5,13 @@ from django.utils.translation import ugettext_lazy as _
 
 class Blog(CMSApp):
     name = _("blog")
-    urls = ["blog.urls"]
+    urls = ["blog.urls.post"]
 
 apphook_pool.register(Blog)
+
+
+class Tags(CMSApp):
+    name = _("tag")
+    urls = ["blog.urls.tag"]
+
+apphook_pool.register(Tags)

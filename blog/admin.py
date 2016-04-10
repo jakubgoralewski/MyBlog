@@ -19,3 +19,4 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagsAdmin(admin.ModelAdmin):
     list_display = ('name',)
+    prepopulated_fields = {"slug": ("name",)}

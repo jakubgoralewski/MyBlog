@@ -16,12 +16,9 @@ urlpatterns = i18n_patterns('',
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^select2/', include('django_select2.urls')),
 
-    # apps urls
-    url(r'^todo/', include('todo.urls')),
-    url(r'^blog/', include('blog.urls')),
-
     # cms urls
     url(r'^', include('cms.urls')),
+    url(r'^', include('blog.urls.post')),
 
 )
 
