@@ -1,13 +1,32 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
+
 from blog.models.post import Post
 
 
-def all_posts_view(request):
+def all_posts_index(request):
+    return redirect('all_posts_paginated', 1)
+
+
+def all_posts(request, page_number):
     template_name = "post/all.html"
 
+    posts = Post.objects.all()
+    paginator = Paginator(posts, 3)
+
+    try:
+        page = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        page = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        page = paginator.page(paginator.num_pages)
+
     context = {
-        'posts': Post.objects.all()
+        'page': page,
+        'paginator': paginator
     }
 
     return render_to_response(template_name, context, context_instance=RequestContext(request))
