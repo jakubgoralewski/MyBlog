@@ -5,7 +5,7 @@ from blog.models.tag import Tag
 
 class TagInline(admin.TabularInline):
     model = TagsInPostsManager
-    extra = 1  # how many rows to show
+    extra = 1
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
