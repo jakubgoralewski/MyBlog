@@ -26,7 +26,7 @@ def all_posts(request, page_number):
 
     context = {
         'page': page,
-        'paginator': paginator
+        'paginator': paginator,
     }
 
     return render_to_response(template_name, context, context_instance=RequestContext(request))
@@ -35,8 +35,10 @@ def all_posts(request, page_number):
 def post_detail(request, slug):
     template_name = "post/detail.html"
 
+    post = get_object_or_404(Post, slug=slug)
+
     context = {
-        'post': get_object_or_404(Post, slug=slug)
+        'post': post,
     }
 
     return render_to_response(template_name, context, context_instance=RequestContext(request))
