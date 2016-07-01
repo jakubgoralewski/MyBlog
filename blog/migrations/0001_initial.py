@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import ckeditor.fields
 from django.conf import settings
+import ckeditor.fields
 
 
 class Migration(migrations.Migration):
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
                 ('title', models.CharField(verbose_name='Title', max_length=512)),
                 ('content', ckeditor.fields.RichTextField(verbose_name='Content')),
                 ('slug', models.SlugField(max_length=128, unique=True)),
@@ -30,14 +30,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Tag',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(verbose_name='Name', max_length=32)),
+                ('description', ckeditor.fields.RichTextField(blank=True, verbose_name='Description', null=True)),
+                ('slug', models.SlugField(max_length=128, unique=True)),
             ],
         ),
         migrations.CreateModel(
             name='TagsInPostsManager',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
                 ('post', models.ForeignKey(to='blog.Post')),
                 ('tag', models.ForeignKey(to='blog.Tag')),
             ],
