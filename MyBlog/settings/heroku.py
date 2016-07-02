@@ -6,7 +6,7 @@ DEBUG = os.environ.get('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_DEBUG = DEBUG
 
-SECRET_KEY = os.environ.get('DEBUG')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DATABASES = {
     'default': dj_database_url.config()
@@ -21,6 +21,18 @@ DATABASE_OPTIONS = {"use_unicode": True, "charset": 'utf8', 'autocommit': True, 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.environ.get('REDIS_URL'),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 # Static files (CSS, JavaScript, Images)
