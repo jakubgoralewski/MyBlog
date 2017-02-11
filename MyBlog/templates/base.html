@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="Jacob Goraewski">
+        <meta name="author" content="Jacob Goralewski">
 
         <title>
             {% block title %}
@@ -13,10 +13,10 @@
             {% endblock title %}
         </title>
         {%  addtoblock "css" %}
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
         {% endaddtoblock %}
         {%  addtoblock "css" %}
-            <link href="{% static 'assets/css/clean-blog.css' %}" rel="stylesheet">
+            <link rel="stylesheet" href="{% static 'assets/css/clean-blog.css' %}">
         {% endaddtoblock %}
 
         {% render_block "css" %}

@@ -29,11 +29,29 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="pagination">
-                {% for p in paginator.page_range %}
+                {% if page.has_previous %}
                     <li>
-                        <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+                        <a href="{% url "all_posts_paginated" page.previous_page_number %}"><</a>
                     </li>
+                {% endif %}
+
+                {% for p in paginator.page_range %}
+                    {% if p == page.number %}
+                        <li class="active disabled pagination-active-background">
+                            <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+                        </li>
+                    {% endif %}
                 {% endfor %}
+
+                {% if page.has_next %}
+                    <li>
+                        <a href="{% url "all_posts_paginated" page.next_page_number %}">></a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
