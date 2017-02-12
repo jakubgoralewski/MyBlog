@@ -1017,17 +1017,17 @@ jQuery(document).ready(function($) {
                 //check if user is scrolling up
                 if (currentTop < this.previousTop) {
                     //if scrolling up...
-                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-visible');
-                    } else {
-                        $('.navbar-custom').removeClass('is-visible is-fixed');
-                    }
+                    //if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
+                    //    $('.navbar-custom').addClass('is-visible');
+                    //} else {
+                    //    $('.navbar-custom').removeClass('is-visible is-fixed');
+                    //}
                 } else {
-                    //if scrolling down...
-                    $('.navbar-custom').addClass('is-visible');
-                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-fixed');
-                    }
+                    ////if scrolling down...
+                    //$('.navbar-custom').addClass('is-visible');
+                    //if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) {
+                    //    $('.navbar-custom').addClass('is-fixed');
+                    //}
                 }
                 this.previousTop = currentTop;
             });
