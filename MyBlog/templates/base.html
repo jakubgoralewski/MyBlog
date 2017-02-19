@@ -1,97 +1,97 @@
 {% load cms_tags staticfiles sekizai_tags menu_tags %}
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="Jacob Goralewski">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Jacob Goralewski">
 
-        <title>
-            {% block title %}
-                This is my new project home page
-            {% endblock title %}
-        </title>
-        {%  addtoblock "css" %}
-            <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
-        {% endaddtoblock %}
-        {%  addtoblock "css" %}
-            <link rel="stylesheet" href="{% static 'assets/css/clean-blog.css' %}">
-        {% endaddtoblock %}
+  <title>
+    {% block title %}
+      This is my new project home page
+    {% endblock title %}
+  </title>
+  {% addtoblock "css" %}
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+  {% endaddtoblock %}
+  {% addtoblock "css" %}
+    <link rel="stylesheet" href="{% static 'assets/css/clean-blog.css' %}">
+  {% endaddtoblock %}
 
-        {% render_block "css" %}
+  {% render_block "css" %}
 
-        {% addtoblock "js" %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        {% endaddtoblock %}
-        {% addtoblock "js" %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        {% endaddtoblock %}
-        {% addtoblock "js" %}
-            <script src="{% static 'assets/js/clean-blog.js' %}"></script>
-        {% endaddtoblock %}
+  {% addtoblock "js" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  {% endaddtoblock %}
+  {% addtoblock "js" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  {% endaddtoblock %}
+  {% addtoblock "js" %}
+    <script src="{% static 'assets/js/clean-blog.js' %}"></script>
+  {% endaddtoblock %}
 
-        {% render_block "js" %}
-    </head>
-    <body>
-        {% cms_toolbar %}
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top is-visible is-fixed">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'all_posts' %}">JakubGoralewski.pl</a>
-                </div>
+  {% render_block "js" %}
+</head>
+<body>
+{% cms_toolbar %}
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top is-visible is-fixed">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'all_posts' %}">JakubGoralewski.pl</a>
+    </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        {% show_menu 0 1 100 100 "menu.html" %}
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        {% show_menu 0 1 100 100 "menu.html" %}
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
 {#        style="background-image: url({% static 'assets/img/t.jpg' %})  #}
-        <header class="intro-header" style="background-image: url({% static 'assets/img/t.jpg' %})">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>JakubGoralewski.pl</h1>
-                            <hr class="small">
-                            <span class="subheading">Jeżeli ktoś ma jakąś catchy nazwe to chętnie przygarne :)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="row">
-            <div class="col-lg-6 col-lg-offset-2">
-                {% block content %}
-
-                {% endblock content %}
-            </div>
-
-            <div class="col-lg-2">
-                {% block side_content %}
-                    <h2>test</h2>
-                    <p>
-                        hujnsdlvjbsadfv asjkb kbsfdkb sdkbafk bf asdasdfk fbksdf k sb fksb dfhk
-                    </p>
-                {% endblock side_content %}
-            </div>
+<header class="intro-header" style="background-image: url({% static 'assets/img/t.jpg' %})">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1>JakubGoralewski.pl</h1>
+          <hr class="small">
+          <span class="subheading">Jeżeli ktoś ma jakąś catchy nazwe to chętnie przygarne :)</span>
         </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+
+    <div class="col-lg-3">
+      {% block side_content %}
+        <h2>test</h2>
+        <p>
+          hujnsdlvjbsadfv asjkb kbsfdkb sdkbafk bf asdasdfk fbksdf k sb fksb dfhk
+        </p>
+      {% endblock side_content %}
+    </div>
+  </div>
+</div>
 
 
-
-
-    </body>
+</body>
 </html>
