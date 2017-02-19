@@ -508,7 +508,11 @@ time {
     padding: 3px 10px;
 }
 
-.post-tags a:before {
+.tags a:before {
     content: '#';
+}
+
+.bio {
+    margin-top: 0;
 }
 

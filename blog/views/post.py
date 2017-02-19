@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 
 from blog.models.post import Post
+from blog.models.tag import Tag
 
 
 def all_posts_index(request):
@@ -13,6 +14,8 @@ def all_posts(request, page_number):
     template_name = "post/all.html"
 
     posts = Post.objects.all()
+    tags = Tag.objects.all()
+
     paginator = Paginator(posts, 3)
 
     try:
@@ -25,6 +28,7 @@ def all_posts(request, page_number):
         page = paginator.page(paginator.num_pages)
 
     context = {
+        'tags': tags,
         'page': page,
         'paginator': paginator,
     }
