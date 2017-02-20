@@ -6,54 +6,59 @@
 {% endblock title %}
 
 {% block content %}
-  {% for post in page %}
-    {%  post_miniature post %}
-  {% endfor %}
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="pagination">
-        {% if page.has_previous %}
-          <li>
-            <a href="{% url "all_posts_paginated" page.previous_page_number %}"><</a>
-          </li>
-        {% endif %}
-
-        {% for p in paginator.page_range %}
-          {% if p == page.number %}
-            <li class="active disabled pagination-active-background">
-              <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
-            </li>
-          {% else %}
+  <div class="col-lg-9">
+    {% for post in page %}
+      {% post_miniature post %}
+    {% endfor %}
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="pagination">
+          {% if page.has_previous %}
             <li>
-              <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+              <a href="{% url "all_posts_paginated" page.previous_page_number %}"><</a>
             </li>
           {% endif %}
-        {% endfor %}
 
-        {% if page.has_next %}
-          <li>
-            <a href="{% url "all_posts_paginated" page.next_page_number %}">></a>
-          </li>
-        {% endif %}
-      </ul>
+          {% for p in paginator.page_range %}
+            {% if p == page.number %}
+              <li class="active disabled pagination-active-background">
+                <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{% url "all_posts_paginated" p %}">{{ p }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page.has_next %}
+            <li>
+              <a href="{% url "all_posts_paginated" page.next_page_number %}">></a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
   </div>
 {% endblock content %}
 
-
 {% block side_content %}
-  <h2>Tagi</h2>
-  <div class="tags">
-    {% for tag in tags %}
-      <span>
+  <div class="col-lg-3">
+    <h2>Tagi</h2>
+
+    <div class="tags">
+      {% for tag in tags %}
+        <span>
         <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
       </span>
-    {% endfor %}
+      {% endfor %}
+    </div>
+    <hr/>
+
+    <h2>O mnie</h2>
+    <p class="bio">
+      Python/Django freelancer. Golang/Python automation tester. Physics/CS studet at Gdańsk Univeristy of Technology.
+    </p>
+    <hr/>
   </div>
-  <hr/>
-
-  <h2>O mnie</h2>
-  <p class="bio">Python/Django freelancer. Golang/Python automation tester. Physics/CS studet at Gdańsk Univeristy of Technology. </p>
-
-  <hr/>
 {% endblock %}

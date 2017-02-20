@@ -19,7 +19,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True, editable=False)
     modified_date = models.DateTimeField(auto_now=True)
 
-    tags = models.ManyToManyField(Tag, through='TagsInPostsManager')
+    tags = models.ManyToManyField(Tag, through='TagsInPostsManager', related_name="posts_with")
 
     def get_absolute_url(self):
         return reverse('bolg.views.post_detail', args=[str(self.slug)])

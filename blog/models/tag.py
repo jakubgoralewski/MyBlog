@@ -13,6 +13,10 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return reverse('bolg.views.tag.all_posts_with_tag', args=[str(self.slug)])
 
+    @property
+    def get_related_posts(self):
+        return self.posts_with.all()
+
     def __str__(self):
         return self.name
 

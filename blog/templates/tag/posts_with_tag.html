@@ -1,23 +1,22 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags post_miniature %}
 
 {% block title %}
     {% page_attribute "page_title" %}
 {% endblock title %}
 
 {% block content %}
+  <div class="col-lg-9">
     <h1>Posts /w tag: {{ tag.name }}</h1>
     {% for post in posts %}
-        <article>
-            <h3>{{ post.title }}</h3>
-            <time>at {{ post.published_date }}</time>
-            <div>
-                {{ post.content|safe|truncatewords:32 }}
-            </div>
-            <div>
-                <a href="{% url 'post_detail' post.slug %}">See details...</a>
-            </div>
-        </article>
-        <hr>
+        {% post_miniature post %}
     {% endfor %}
+  </div>
 {% endblock content %}
+
+{% block side_content %}
+    <div class="col-lg-3">
+
+
+    </div>
+{% endblock %}
