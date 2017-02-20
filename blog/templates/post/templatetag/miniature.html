@@ -1,4 +1,4 @@
-{% load thumbnail static %}
+{% load thumbnail static tags %}
 
 <article>
   <div class="post-header" style="background-image: url({% static 'assets/img/t.jpg' %})">
@@ -16,13 +16,8 @@
   </div>
 
   <div class="post-text-align post-footer">
-    <div class="tags">
-      {% for tag in post.tags.all %}
-        <span>
-          <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
-        </span>
-      {% endfor %}
-    </div>
+
+    {% tags post.get_related_tags %}
 
     <div class="pull-right">
       <a href="{% url 'post_detail' post.slug %}">See details...</a>

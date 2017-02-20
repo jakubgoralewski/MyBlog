@@ -24,6 +24,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('bolg.views.post_detail', args=[str(self.slug)])
 
+    @property
+    def get_related_tags(self):
+        return self.tags.all()
+
     def __str__(self):
         return "\"%s\" %s@%s" % (self.title, self.author, self.created_date.strftime("%d-%m-%Y %H:%m"))
 

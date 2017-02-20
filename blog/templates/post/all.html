@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags static post_miniature %}
+{% load cms_tags static post_miniature tags %}
 
 {% block title %}
   {% page_attribute "page_title" %}
@@ -42,23 +42,18 @@
   </div>
 {% endblock content %}
 
+
 {% block side_content %}
   <div class="col-lg-3">
     <h2>Tagi</h2>
-
-    <div class="tags">
-      {% for tag in tags %}
-        <span>
-        <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
-      </span>
-      {% endfor %}
-    </div>
+    {% tags tags %}
     <hr/>
 
     <h2>O mnie</h2>
     <p class="bio">
       Python/Django freelancer. Golang/Python automation tester. Physics/CS studet at Gdańsk Univeristy of Technology.
     </p>
+
     <hr/>
   </div>
 {% endblock %}
