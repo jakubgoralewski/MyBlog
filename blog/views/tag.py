@@ -20,15 +20,12 @@ def all_posts_with_tag(request, slug):
     template_name = "tag/posts_with_tag.html"
 
     tag = get_object_or_404(Tag, slug=slug)
-
-    managers = TagsInPostsManager.objects.filter(tag=tag)
-
-    posts = []
-    for obj in managers:
-        posts.append(obj.post)
+    posts = tag.posts_with.all()
+    tags = Tag.objects.all()
 
     context = {
         'tag': tag,
+        'tags': tags,
         'posts': posts
     }
 

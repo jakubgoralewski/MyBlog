@@ -1,22 +1,30 @@
 {% extends "base.html" %}
-{% load cms_tags post_miniature %}
+{% load cms_tags post_miniature tags %}
 
 {% block title %}
-    {% page_attribute "page_title" %}
+  {% page_attribute "page_title" %}
 {% endblock title %}
 
 {% block content %}
   <div class="col-lg-9">
-    <h1>Posts /w tag: {{ tag.name }}</h1>
+    <h1>Posts /w tag: <span class="tags">{{ tag.name }}</span></h1>
     {% for post in posts %}
-        {% post_miniature post %}
+      {% post_miniature post %}
     {% endfor %}
   </div>
 {% endblock content %}
 
 {% block side_content %}
-    <div class="col-lg-3">
+  <div class="col-lg-3">
+    <h2>Tagi</h2>
+    {% tags tags %}
+    <hr/>
 
+    <h2>O mnie</h2>
 
-    </div>
+    <p class="bio">
+      Python/Django freelancer. Golang/Python automation tester. Physics/CS studet at Gdańsk Univeristy of Technology.
+    </p>
+    <hr/>
+  </div>
 {% endblock %}
