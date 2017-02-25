@@ -3,9 +3,9 @@
  * Copyright 2014 Start Bootstrap
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
-
+ /*'goudy old style', 'minion pro', 'bell mt',*/
 body {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    font-family:  Georgia, 'Hiragino Mincho Pro', serif;
     font-size: 20px;
     color: #404040;
 }
@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
     font-weight: 800;
 }
 
@@ -62,7 +62,7 @@ hr.small {
     left: 0;
     width: 100%;
     z-index: 3;
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
 }
 
 .navbar-custom .navbar-brand {
@@ -197,7 +197,7 @@ hr.small {
     font-size: 24px;
     line-height: 1.1;
     display: block;
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
     font-weight: 300;
     margin: 10px 0 0;
 }
@@ -220,14 +220,14 @@ hr.small {
 }
 
 .intro-header .post-heading .subheading {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
     font-size: 24px;
     margin: 10px 0 30px;
     font-weight: 600;
 }
 
 .intro-header .post-heading .meta {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
     font-style: italic;
     font-weight: 300;
     font-size: 20px;
@@ -383,7 +383,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 .btn {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;*/
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 800;
@@ -410,7 +410,7 @@ form .row:first-child .floating-label-form-group {
 
 .pager li > a,
 .pager li > span {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    /*font-family: 'EB Garamond', serif;*/
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 800;
@@ -502,10 +502,13 @@ time {
     font-size: smaller;
     color: #666666;
 
-    position: absolute;
     bottom: 0;
     right: 0;
     padding: 3px 10px;
+}
+
+.time {
+    position: absolute;
 }
 
 .tags a:before {

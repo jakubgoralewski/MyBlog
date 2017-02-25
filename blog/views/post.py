@@ -13,7 +13,7 @@ def all_posts_index(request):
 def all_posts(request, page_number):
     template_name = "post/all.html"
 
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by("-published_date")
     tags = Tag.objects.all()
 
     paginator = Paginator(posts, 3)

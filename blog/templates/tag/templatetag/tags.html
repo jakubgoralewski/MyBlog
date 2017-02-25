@@ -1,9 +1,11 @@
-<div class="tags">
-  {% for tag in tags %}
-    <span>
+{% if tags %}
+  <div class="tags">
+    {% for tag in tags %}
+      <span>
       <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
     </span>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+{% endif %}
 
 

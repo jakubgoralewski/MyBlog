@@ -4,15 +4,18 @@
   <div class="post-header" style="background-image: url({% static 'assets/img/t.jpg' %})">
     <div class="post-header-clear-fix"></div>
     <div class="post-header-caption">
-        <h2>{{ post.title }}</h2>
-      <time class="pull-right">
-        {{ post.author }} @ {{ post.published_date }}
-      </time>
+      <h2>{{ post.title }}</h2>
+
+      <div class="pull-right">
+        <time class="time">
+          {{ post.author }} @ {{ post.published_date }}
+        </time>
+      </div>
     </div>
   </div>
 
   <div class="post-text-align post-content">
-    {{ post.content|safe|truncatewords:32 }}
+    {{ post.content|safe|truncatewords:64 }}
   </div>
 
   <div class="post-text-align post-footer">
@@ -20,7 +23,7 @@
     {% tags post.get_related_tags %}
 
     <div class="pull-right">
-      <a href="{% url 'post_detail' post.slug %}">See details...</a>
+      <a href="{% url 'post_detail' post.slug %}">Czytaj więcej...</a>
     </div>
   </div>
 </article>

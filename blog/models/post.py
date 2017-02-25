@@ -31,6 +31,9 @@ class Post(models.Model):
     def __str__(self):
         return "\"%s\" %s@%s" % (self.title, self.author, self.created_date.strftime("%d-%m-%Y %H:%m"))
 
+    class Meta:
+        app_label = "blog"
+
 
 class TagsInPostsManager(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
