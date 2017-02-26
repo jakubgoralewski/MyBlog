@@ -45,15 +45,6 @@
 
 {% block side_content %}
   <div class="col-lg-3">
-    <h2>Tagi</h2>
-    {% tags tags %}
-    <hr/>
-
-    <h2>O mnie</h2>
-    <p class="bio">
-      Python/Django freelancer. Golang/Python automation tester. Physics/CS studet at Gdańsk Univeristy of Technology.
-    </p>
-
-    <hr/>
+    {% static_placeholder "side bar" %}
   </div>
 {% endblock %}

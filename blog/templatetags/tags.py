@@ -8,7 +8,7 @@ register = template.Library()
 
 
 @register.simple_tag(name='tags')
-def tags(tags="all"):
+def render(tags="all", caption=None):
     shelter_tile_template = get_template('tag/templatetag/tags.html')
 
     if tags == "all":
@@ -16,6 +16,7 @@ def tags(tags="all"):
 
     context = Context({
         "tags": tags,
+        "caption": caption
     })
 
     result = shelter_tile_template.render(context)

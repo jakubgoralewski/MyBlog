@@ -4,7 +4,9 @@
   <div class="post-header" style="background-image: url({% static 'assets/img/t.jpg' %})">
     <div class="post-header-clear-fix"></div>
     <div class="post-header-caption">
-      <h2>{{ post.title }}</h2>
+      <h2>
+        <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+      </h2>
 
       <div class="pull-right">
         <time class="time">

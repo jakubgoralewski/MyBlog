@@ -1,11 +1,18 @@
+{% load cms_tags %}
+
 {% if tags %}
   <div class="tags">
+    {% if caption %}
+      {% static_placeholder "tags caption" %}
+    {% endif %}
+
     {% for tag in tags %}
       <span>
-      <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
-    </span>
+        <a href="{% url 'post_with_tag' tag.slug %}">{{ tag.name }}</a>
+      </span>
     {% endfor %}
   </div>
+  <hr/>
 {% endif %}
 
 
