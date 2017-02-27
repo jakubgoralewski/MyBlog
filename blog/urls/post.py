@@ -10,5 +10,5 @@ urlpatterns = patterns(
     url(r'^post/(?P<slug>[^/]+)/$', post_detail, name="post_detail"),
 
     url(r'^latest/feed/$', LatestEntriesFeed()),
-    url(r'^DSP2017/feed/$', DSP2017Feed()),  # za to tez przepraszam
+    url(r'^dsp2017/feed/$', DSP2017Feed()),  # za to tez przepraszam
 )
