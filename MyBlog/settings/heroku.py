@@ -2,7 +2,7 @@
 from .base import *
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 THUMBNAIL_DEBUG = DEBUG
 
