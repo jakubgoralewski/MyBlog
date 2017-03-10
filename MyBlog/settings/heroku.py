@@ -47,20 +47,19 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 os.environ.get('')
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_S3_PATH = "media"
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_S3_PATH = "static"
+
 AWS_STORAGE_BUCKET_NAME = os.environ.get('BUCKET_NAME')
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-
-
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-
+MEDIA_ROOT = '/%s/media/' % DEFAULT_S3_PATH
+STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_ROOT = "/%s/" % STATIC_S3_PATH
+MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 
 
 
