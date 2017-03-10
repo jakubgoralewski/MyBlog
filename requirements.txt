@@ -37,3 +37,6 @@ django-redis==4.4.3
 
 gunicorn==19.4.5
 whitenoise==2.0.6
+
+django-storages==1.5.2
+boto==2.46.1

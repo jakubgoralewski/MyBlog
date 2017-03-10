@@ -79,6 +79,7 @@ INSTALLED_APPS = (
     'djangocms_link',
     'reversion',
     'ckeditor',
+    'storages',
 
     'MyBlog',
     'blog',
