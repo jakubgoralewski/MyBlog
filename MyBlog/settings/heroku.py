@@ -51,32 +51,22 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('BUCKET_NAME')
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_S3_PATH = "media"
+
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATIC_S3_PATH = "static"
 
-MEDIA_ROOT = '/%s/media/' % DEFAULT_S3_PATH
 
-STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-STATIC_ROOT = "/%s/" % STATIC_S3_PATH
 
-MEDIA_URL = '//s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 
-#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-#STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-#STATIC_URL = '/static/'
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-#STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'MyBlog', 'static'),
-)
+#STATICFILES_DIRS = (
+    #os.path.join(BASE_DIR, 'MyBlog', 'static'),
+#)
 
 
 
